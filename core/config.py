@@ -1,0 +1,30 @@
+import logging
+import sys
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
+# Setup minimal logging
+logging.basicConfig(
+    stream=sys.stdout,
+    level=logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+)
+logger = logging.getLogger("llm_consensus_engine")
+
+class Settings(BaseSettings):
+    project_name: str = "LLM Consensus Engine"
+    database_url: str = "sqlite:///./consensus.db"
+    
+    # Optional LLM API keys. LiteLLM picks these up automatically if set in ENV,
+    # but having them in settings is good practice to ensure they exist or log warnings.
+    openai_api_key: str | None = None
+    anthropic_api_key: str | None = None
+    gemini_api_key: str | None = None
+    
+    # Models to use
+    primary_model: str = "gpt-4o"
+    secondary_model: str = "claude-3-5-sonnet-20240620"
+    tertiary_model: str = "gemini/gemini-1.5-pro"
+    
+    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
+
+settings = Settings()
