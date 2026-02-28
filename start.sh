@@ -20,7 +20,7 @@ echo ""
 
 # Start the FastAPI backend in the background
 echo -e "${DIM_PINK}  [1/2]${RESET} ${LIGHT_PINK}FastAPI backend${RESET} → http://localhost:8000"
-uvicorn main:app --host 0.0.0.0 --port 8000 &
+uvicorn main:app --host 0.0.0.0 --port 8000 --reload &
 
 sleep 2
 
