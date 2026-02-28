@@ -167,6 +167,19 @@ Bu komut hem FastAPI backend'i (port 8000) hem de Streamlit dashboard'u (port 85
    - Tam fark gorunumu
    - Tamamlanmis iyilestirilmis kod
 
+### Terminal Arayuzu (TUI)
+
+Eger islerinizi terminalden yurutmeyi tercih ediyorsaniz, ozel tasarimli TUI (Terminal User Interface) aracimizi kullanabilirsiniz:
+
+1. `FastAPI` sunucusunun arkaplanda calistigindan emin olun (`bash start.sh` veya `uvicorn main:app`).
+2. Yeni bir terminal penceresinde CLI aracini baslatin:
+   ```bash
+   python cli.py
+   ```
+3. Acilan ekranda sol panele kodunuzu yapistirin ve enter'a basin.
+4. Alt kisimdaki alana promptunuzu (istem) yazin.
+5. `CTRL+R` kisayoluyla veya butona tiklayarak 3 AI modelinin analizini dogrudan terminalinizde baslatin!
+
 ## Docker Kurulumu (Alternatif)
 
 Eğer projeyi izole Docker container'ları içinde çalıştırmayı tercih ederseniz, `docker-compose` kullanabilirsiniz:
