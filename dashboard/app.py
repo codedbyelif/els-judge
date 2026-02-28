@@ -282,6 +282,10 @@ with st.form("submission_form"):
 
                             for tab, result in zip(tabs, model_results):
                                 with tab:
+                                    model_name = result['model_name']
+                                    st.markdown(f"**{t('ai_prompt_sent', lang).format(model=model_name)}**")
+                                    st.info(prompt_input)
+                                    st.markdown(f"**{t('ai_response_received', lang).format(model=model_name)}**")
                                     st.markdown(f"**{t('explanation', lang)}:** {result['explanation']}")
 
                                     # Show changes

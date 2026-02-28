@@ -35,6 +35,8 @@ TRANSLATIONS = {
         "total_analyses": "Total Analyses",
         "active_models": "Active Models",
         "view_details": "View details",
+        "ai_prompt_sent": "Prompt sent to {model}:",
+        "ai_response_received": "{model} suggested these improvements:",
     },
     "tr": {
         "page_title": "LLM Konsensus Motoru",
@@ -72,6 +74,8 @@ TRANSLATIONS = {
         "total_analyses": "Toplam Analiz",
         "active_models": "Aktif Modeller",
         "view_details": "Detaylari gor",
+        "ai_prompt_sent": "{model} modeline verdigin prompt:",
+        "ai_response_received": "{model} bana bu cevabi verdi:",
     }
 }
 
