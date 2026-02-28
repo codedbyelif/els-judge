@@ -1,10 +1,22 @@
-from pydantic import BaseModel, Field
-from typing import List, Optional, Literal
+from pydantic import BaseModel, Field, field_validator
+from typing import List, Optional
 
 # --- API Input ---
 class SubmissionRequest(BaseModel):
-    code: str = Field(..., description="The user's source code to be improved.")
-    prompt: str = Field(..., description="Instructions for what to improve or change.")
+    code: str = Field(..., description="The user's source code to be improved.", min_length=1)
+    prompt: str = Field(..., description="Instructions for what to improve or change.", min_length=1, max_length=2000)
+
+    @field_validator("code")
+    def code_must_not_be_empty(cls, v):
+        if not v.strip():
+            raise ValueError("Code must not be empty or whitespace only.")
+        return v
+
+    @field_validator("prompt")
+    def prompt_must_not_be_empty(cls, v):
+        if not v.strip():
+            raise ValueError("Prompt must not be empty or whitespace only.")
+        return v
 
 # --- LLM Suggestion Output ---
 class CodeChange(BaseModel):
