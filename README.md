@@ -167,6 +167,35 @@ Bu komut hem FastAPI backend'i (port 8000) hem de Streamlit dashboard'u (port 85
    - Tam fark gorunumu
    - Tamamlanmis iyilestirilmis kod
 
+## Docker Kurulumu (Alternatif)
+
+Eğer projeyi izole Docker container'ları içinde çalıştırmayı tercih ederseniz, `docker-compose` kullanabilirsiniz:
+
+### 1. API Anahtarlarını Ayarlayın
+Lokal kurulumda olduğu gibi öncelikle bir `.env` dosyasına ihtiyacınız var:
+```bash
+cp .env.example .env  # Veya kendiniz bir .env dosyasi olusturun
+```
+İçerisine API anahtarlarınızı girin:
+```env
+OPENAI_API_KEY=sk-...
+ANTHROPIC_API_KEY=sk-ant-...
+GEMINI_API_KEY=AIzaSy...
+```
+
+### 2. Başlatın
+Proje ana dizininde şu komutu çalıştırın:
+```bash
+docker-compose up --build -d
+```
+Docker Compose `.env` dosyanızı otomatik okuyarak sistemdeki iki container'ı (API ve Arayüz) başlatacaktır.
+
+### 3. Tarayıcıda Açın
+- **Dashboard:** http://localhost:8501
+- **API Dokümantasyonu:** http://localhost:8000/docs
+- **Logları İzlemek:** `docker-compose logs -f`
+- **Sistemi Durdurmak:** `docker-compose down`
+
 ---
 
 ## Mimari Desenleri (Microsoft LLM-as-Judge'dan Esinlenildi)
@@ -223,14 +252,34 @@ ai-code-judge/
 
 ---
 
-## Docker (Alternative)
+## Docker Setup
 
+If you prefer to run the entire stack in isolated Docker containers, you can use the provided Docker Compose configuration. This will spin up two containers: one for the FastAPI backend and one for the Streamlit dashboard.
+
+### 1. Configure API Keys
+Just like the local setup, you need a `.env` file first:
+```bash
+cp .env.example .env  # Or simply create a .env file
+```
+Add your keys inside `.env`:
+```env
+OPENAI_API_KEY=sk-...
+ANTHROPIC_API_KEY=sk-ant-...
+GEMINI_API_KEY=AIzaSy...
+```
+
+### 2. Build and Run Container
+Run the following command in the root of the project:
 ```bash
 docker-compose up --build -d
 ```
+Docker Compose will automatically read your `.env` variables and pass them to the containers.
 
-- Dashboard: http://localhost:8501
-- API: http://localhost:8000/docs
+### 3. Open in Browser
+- **Dashboard:** http://localhost:8501
+- **API Docs:** http://localhost:8000/docs
+- **View Logs:** `docker-compose logs -f`
+- **Stop Containers:** `docker-compose down`
 
 ---
 

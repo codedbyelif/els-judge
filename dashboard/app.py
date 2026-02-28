@@ -265,7 +265,8 @@ with st.form("submission_form"):
         else:
             with st.spinner(t("spinner", lang)):
                 try:
-                    res = requests.post("http://localhost:8000/api/submit-code", json={
+                    api_url = os.getenv("API_URL", "http://localhost:8000")
+                    res = requests.post(f"{api_url}/api/submit-code", json={
                         "code": code_input,
                         "prompt": prompt_input
                     }, timeout=120)
