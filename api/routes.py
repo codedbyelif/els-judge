@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from core.database import get_db
-from models.domain import Submission, Review, DiffNode, FinalVerdict
-from schemas.api import SubmissionRequest, FinalVerdictResponse
+from models.domain import Submission, ModelSuggestion
+from schemas.api import SubmissionRequest, FinalVerdictResponse, ModelResult, CodeChange
 from engine.dispatcher import process_submission
 import logging
 
@@ -12,66 +12,56 @@ router = APIRouter()
 @router.post("/submit-code", response_model=FinalVerdictResponse)
 async def submit_code(request: SubmissionRequest, db: Session = Depends(get_db)):
     """
-    Submits original and suggested code to the consensus pipeline.
-    The pipeline runs diff analysis, multiple LLM reviews concurrently,
-    aggregates the risk scores, calculates consensus, and stores everything in the DB.
+    Submits user's code and prompt to the AI improvement pipeline.
+    Sends to multiple LLMs, collects improved versions, and returns comparison.
     """
     # 1. Create Submission Record
     submission = Submission(
-        original_code=request.original_code, 
-        suggested_code=request.suggested_code
+        code=request.code,
+        prompt=request.prompt
     )
     db.add(submission)
     db.commit()
     db.refresh(submission)
-    
+
     try:
         # 2. Run Pipeline
-        results = await process_submission(request.original_code, request.suggested_code)
-        
-        # 3. Store Diffs
-        for diff in results.get("diffs", []):
-            db_diff = DiffNode(
+        results = await process_submission(request.code, request.prompt)
+
+        # 3. Store per-model suggestions
+        for mr in results.get("model_results", []):
+            suggestion = mr["suggestion"]
+            db_suggestion = ModelSuggestion(
                 submission_id=submission.id,
-                change_type=diff.get("change_type", "unknown"),
-                original_chunk=diff.get("original_chunk"),
-                suggested_chunk=diff.get("suggested_chunk")
+                model_name=mr["model_name"],
+                improved_code=suggestion.improved_code,
+                explanation=suggestion.explanation,
+                changes=[c.model_dump() for c in suggestion.changes],
+                diff_text=mr["diff_text"]
             )
-            db.add(db_diff)
-            
-        # 4. Store Reviews
-        for model_name, review_data in results.get("reviews", {}).items():
-            db_review = Review(
-                submission_id=submission.id,
-                model_name=model_name,
-                structured_data=review_data.model_dump(),
-                risk_score=review_data.overall_risk_score
-            )
-            db.add(db_review)
-            
-        # 5. Store Final Verdict
-        consensus = results.get("consensus", {})
-        db_verdict = FinalVerdict(
-            submission_id=submission.id,
-            aggregated_risk_score=consensus.get("aggregated_risk_score", 0.0),
-            severity_level=consensus.get("severity_level", "Unknown"),
-            disagreement_rate=consensus.get("disagreement_rate", 0.0),
-            consensus_issues=consensus.get("consensus_issues", []),
-            markdown_report=results.get("report", "")
-        )
-        db.add(db_verdict)
+            db.add(db_suggestion)
+
         db.commit()
-        db.refresh(db_verdict)
-        
-        # 6. Return standard response
+
+        # 4. Build response
+        model_results = []
+        for mr in results.get("model_results", []):
+            suggestion = mr["suggestion"]
+            model_results.append(ModelResult(
+                model_name=mr["model_name"],
+                improved_code=suggestion.improved_code,
+                explanation=suggestion.explanation,
+                changes=suggestion.changes,
+                diff_text=mr["diff_text"]
+            ))
+
         return FinalVerdictResponse(
             submission_id=submission.id,
-            aggregated_risk_score=db_verdict.aggregated_risk_score,
-            severity_level=db_verdict.severity_level,
-            disagreement_rate=db_verdict.disagreement_rate,
-            markdown_report=db_verdict.markdown_report
+            model_results=model_results,
+            common_changes=results.get("common_changes", ""),
+            markdown_report=results.get("report", "")
         )
-        
+
     except Exception as e:
         logger.error(f"Pipeline error for submission {submission.id}: {e}", exc_info=True)
         db.rollback()

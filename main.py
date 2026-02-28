@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from api.routes import router as api_router
 from core.database import engine, Base
 from core.config import settings
+from models.domain import Submission, ModelSuggestion  # noqa: F401 - register models
 import logging
 
 logger = logging.getLogger("llm_consensus_engine.main")
