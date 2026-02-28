@@ -1,27 +1,33 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional, Literal
 
-# --- API Input --- 
+# --- API Input ---
 class SubmissionRequest(BaseModel):
-    original_code: str = Field(..., description="The original source code snippet.")
-    suggested_code: str = Field(..., description="The LLM-generated or suggested updated code.")
+    code: str = Field(..., description="The user's source code to be improved.")
+    prompt: str = Field(..., description="Instructions for what to improve or change.")
 
-# --- LLM Review Outputs --- 
-class ChangeIssue(BaseModel):
-    category: Literal["security", "logic", "performance", "style", "functional"]
-    description: str
-    severity: Literal["low", "medium", "high", "critical"]
-    line_number: Optional[int] = None
+# --- LLM Suggestion Output ---
+class CodeChange(BaseModel):
+    line_range: str = Field(..., description="e.g. 'Line 3-5' or 'Line 7'")
+    original: str = Field(..., description="The original code snippet that was changed.")
+    improved: str = Field(..., description="The improved version of that snippet.")
+    reason: str = Field(..., description="Why this change was made.")
 
-class LLMReviewOutput(BaseModel):
-    issues: List[ChangeIssue]
-    overall_risk_score: float = Field(..., ge=0, le=10, description="Risk score from 0 (safe) to 10 (critical).")
-    summary: str = Field(..., description="Brief summary of the review.")
+class LLMSuggestion(BaseModel):
+    improved_code: str = Field(..., description="The full improved version of the code.")
+    explanation: str = Field(..., description="Brief summary of what was changed and why.")
+    changes: List[CodeChange] = Field(default_factory=list, description="List of specific changes made.")
 
 # --- API Response ---
+class ModelResult(BaseModel):
+    model_name: str
+    improved_code: str
+    explanation: str
+    changes: List[CodeChange]
+    diff_text: str
+
 class FinalVerdictResponse(BaseModel):
     submission_id: int
-    aggregated_risk_score: float
-    severity_level: str
-    disagreement_rate: float
+    model_results: List[ModelResult]
+    common_changes: str
     markdown_report: str
