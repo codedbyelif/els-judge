@@ -1,25 +1,21 @@
 import difflib
 
-def generate_unified_diff(original: str, suggested: str) -> list[str]:
-    """Generates a list of unified diff strings using Python's difflib."""
-    return list(difflib.unified_diff(
+
+def generate_unified_diff(original: str, suggested: str) -> str:
+    """Generates a unified diff string."""
+    diff_lines = list(difflib.unified_diff(
         original.splitlines(),
         suggested.splitlines(),
         fromfile='original',
-        tofile='suggested',
+        tofile='improved',
         n=3,
         lineterm=''
     ))
+    return "\n".join(diff_lines) if diff_lines else "(No changes)"
 
-def analyze_diff(original_code: str, suggested_code: str) -> list[dict]:
+
+def analyze_diff(original_code: str, suggested_code: str) -> str:
     """
-    Analyzes the diff and chunks it into simplified node structures or statistics.
-    For this implementation, we return basic diff text parts.
+    Returns a unified diff text between original and suggested code.
     """
-    raw_diff = generate_unified_diff(original_code, suggested_code)
-    
-    # We can store the full text diff or parse chunks.
-    # Here we just return a simplified unified view in one piece.
-    diff_text = "\n".join(raw_diff)
-    
-    return [{"change_type": "unified", "original_chunk": None, "suggested_chunk": diff_text}]
+    return generate_unified_diff(original_code, suggested_code)

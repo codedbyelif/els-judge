@@ -1,55 +1,44 @@
-from typing import Dict, Any
-from schemas.api import LLMReviewOutput
+from typing import List, Dict, Any
 
-def calculate_consensus(reviews: Dict[str, LLMReviewOutput]) -> Dict[str, Any]:
+
+def find_common_changes(model_results: List[Dict[str, Any]]) -> str:
     """
-    Analyzes multiple LLM reviews to calculate a final consensus risk score,
-    detect disagreements, and pool identified issues.
+    Analyzes suggestions from multiple models to find common changes.
+    Returns a text summary of what changes were agreed upon by multiple models.
     """
-    if not reviews:
-        return {
-            "aggregated_risk_score": 0.0,
-            "severity_level": "None",
-            "disagreement_rate": 0.0,
-            "consensus_issues": []
-        }
-        
-    scores = [r.overall_risk_score for r in reviews.values() if r is not None]
-    if not scores:
-         return {
-            "aggregated_risk_score": 0.0,
-            "severity_level": "None",
-            "disagreement_rate": 0.0,
-            "consensus_issues": []
-        }
-        
-    avg_score = sum(scores) / len(scores)
-    
-    # Simple disagreement rate based on max difference in scores among models
-    max_diff = max(scores) - min(scores)
-    # Normalize disagreement to a 0-1 scale (since scores range 0-10)
-    disagreement_rate = min(max_diff / 10.0, 1.0)
-    
-    if avg_score >= 8: severity = "Critical"
-    elif avg_score >= 5: severity = "High"
-    elif avg_score >= 3: severity = "Medium"
-    else: severity = "Low"
-    
-    # Aggregate and group issues
-    all_issues = []
-    for model, rev in reviews.items():
-        if rev and rev.issues:
-            for issue in rev.issues:
-                issue_dict = issue.model_dump()
-                issue_dict["found_by"] = model
-                all_issues.append(issue_dict)
-                
-    # In a full production system, we could group similar issues by semantic similarity.
-    # Here we return a pooled list.
-    
-    return {
-        "aggregated_risk_score": round(avg_score, 2),
-        "severity_level": severity,
-        "disagreement_rate": round(disagreement_rate, 2),
-        "consensus_issues": all_issues
-    }
+    if len(model_results) < 2:
+        return "Not enough model responses to compare."
+
+    # Collect all change reasons from each model
+    model_reasons = {}
+    for result in model_results:
+        name = result["model_name"]
+        suggestion = result["suggestion"]
+        reasons = [c.reason.lower().strip() for c in suggestion.changes]
+        model_reasons[name] = reasons
+
+    # Find themes that appear in multiple models by simple keyword overlap
+    all_reasons = []
+    for result in model_results:
+        suggestion = result["suggestion"]
+        for change in suggestion.changes:
+            all_reasons.append({
+                "model": result["model_name"],
+                "reason": change.reason,
+                "line_range": change.line_range
+            })
+
+    if not all_reasons:
+        return "No specific changes identified."
+
+    # Group by which models suggested similar types of changes
+    model_names = [r["model_name"] for r in model_results]
+    summary_parts = []
+    summary_parts.append(f"**{len(model_results)}** model responded with suggestions.\n")
+
+    for result in model_results:
+        suggestion = result["suggestion"]
+        n_changes = len(suggestion.changes)
+        summary_parts.append(f"- **{result['model_name']}**: {n_changes} change(s)")
+
+    return "\n".join(summary_parts)
