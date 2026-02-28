@@ -23,7 +23,7 @@ class Settings(BaseSettings):
     # Models to use
     primary_model: str = "gpt-4o"
     secondary_model: str = "claude-3-5-sonnet-20240620"
-    tertiary_model: str = "gemini/gemini-2.0-flash"
+    tertiary_model: str = "gemini/gemini-flash-latest"
     
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
 

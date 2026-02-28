@@ -6,7 +6,7 @@ def find_common_changes(model_results: List[Dict[str, Any]]) -> str:
     Analyzes suggestions from multiple models to find common changes.
     Returns a text summary of what changes were agreed upon by multiple models.
     """
-    if len(model_results) < 2:
+    if len(model_results) == 0:
         return "Not enough model responses to compare."
 
     # Collect all change reasons from each model
