@@ -19,7 +19,7 @@ class AICodeJudgeApp(App):
     
     CSS = """
     Screen {
-        background: #0c0c12;
+        background: $background;
     }
     
     Header {
@@ -29,12 +29,12 @@ class AICodeJudgeApp(App):
     }
     
     Footer {
-        background: #131320;
+        background: $surface;
         color: #f06595;
     }
     
     #main_container {
-        padding: 1;
+        padding: 0;
         width: 100%;
         height: 100%;
         layout: horizontal;
@@ -63,8 +63,8 @@ class AICodeJudgeApp(App):
     TextArea {
         height: 1fr;
         border: solid #d6336c;
-        background: #1a1a2e;
-        color: #eeeeee;
+        background: $surface;
+        color: $text;
     }
 
     TextArea:focus {
@@ -73,8 +73,8 @@ class AICodeJudgeApp(App):
     
     Input {
         border: solid #d6336c;
-        background: #1a1a2e;
-        color: #eeeeee;
+        background: $surface;
+        color: $text;
     }
     
     Input:focus {
@@ -104,7 +104,7 @@ class AICodeJudgeApp(App):
         height: 100%;
         overflow-y: scroll;
         border: solid #d6336c;
-        background: #131320;
+        background: $surface;
         padding: 1;
     }
     
