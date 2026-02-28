@@ -15,7 +15,7 @@ class ResultView(Static):
         return self.results_text
 
 class AICodeJudgeApp(App):
-    """A Textual TUI for the LLM Consensus Engine."""
+    """A Textual TUI for Els Judge."""
     
     CSS = """
     Screen {
@@ -132,19 +132,19 @@ class AICodeJudgeApp(App):
                 yield Input(id="prompt_input", placeholder="e.g. Add type hints and error handling")
                 
                 yield Button("Analyze with 3 AI Models", id="submit_btn", variant="primary")
-                yield Static("♥ Built by codedbyelif ♥", id="branding_footer")
+                yield Static("Built by codedbyelif", id="branding_footer")
                 
             # Right Pane: Results
             with Vertical(id="right_pane"):
                 yield Static("Analysis Report:", classes="label")
                 with Container(id="results_container"):
-                    yield Markdown("## Welcome to LLM Consensus Engine\n\n1. Paste your code on the left.\n2. Enter your instructions.\n3. Press **Analyze** to submit.", id="markdown_result")
+                    yield Markdown("## Welcome to Els Judge\n\n1. Paste your code on the left.\n2. Enter your instructions.\n3. Press **Analyze** to submit.", id="markdown_result")
                     yield LoadingIndicator(id="loading", classes="hidden")
                 
         yield Footer()
 
     def on_mount(self) -> None:
-        self.title = "LLM Consensus Engine"
+        self.title = "Els Judge"
         self.query_one("#loading").display = False
 
     async def on_button_pressed(self, event: Button.Pressed) -> None:
@@ -156,7 +156,7 @@ class AICodeJudgeApp(App):
         prompt_input = self.query_one("#prompt_input", Input).value
         
         if not code_input.strip() or not prompt_input.strip():
-            self.query_one("#markdown_result", Markdown).update("### ❌ Error\nPlease provide both code and a prompt.")
+            self.query_one("#markdown_result", Markdown).update("### Error\nPlease provide both code and a prompt.")
             return
 
         # Show loading
@@ -206,7 +206,7 @@ class AICodeJudgeApp(App):
     def update_error(self, error_msg: str) -> None:
         self.query_one("#loading").display = False
         md_view = self.query_one("#markdown_result", Markdown)
-        md_view.update(f"### ❌ API Error\nCould not connect to the backend. Ensure FastAPI is running on port 8000.\n\nDetails: `{error_msg}`")
+        md_view.update(f"### API Error\nCould not connect to the backend. Ensure FastAPI is running on port 8000.\n\nDetails: `{error_msg}`")
         md_view.display = True
         
         btn = self.query_one("#submit_btn", Button)

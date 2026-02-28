@@ -1,4 +1,4 @@
-# LLM Consensus Engine
+# Els Judge
 
 **Built by [codedbyelif](https://github.com/codedbyelif)**
 
@@ -11,8 +11,8 @@ A production-ready application that evaluates and improves code using multiple l
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/codedbyelif/ai-code-judge.git
-cd ai-code-judge
+git clone https://github.com/codedbyelif/els-judge.git
+cd els-judge
 ```
 
 ### 2. Create a virtual environment
@@ -65,6 +65,18 @@ This starts both the FastAPI backend (port 8000) and the Streamlit dashboard (po
    - Full diff view
    - Complete improved code
 
+### Terminal Dashboard (CLI)
+
+If you prefer the terminal, you can use our beautifully styled TUI (Terminal User Interface):
+
+1. Make sure your `FastAPI` backend is running (`bash start.sh` or `uvicorn main:app`).
+2. Run the CLI tool:
+   ```bash
+   python cli.py
+   ```
+3. Paste your code, press `Enter`, then type `END` on a new line.
+4. Provide your prompt and watch the AI analyze your code directly in the terminal!
+
 ---
 
 ## Architecture Patterns (Inspired by Microsoft LLM-as-Judge)
@@ -101,8 +113,8 @@ This project was inspired by Microsoft's open-source **LLM-as-Judge** framework.
 ### 1. Repoyu klonlayin
 
 ```bash
-git clone https://github.com/codedbyelif/ai-code-judge.git
-cd ai-code-judge
+git clone https://github.com/codedbyelif/els-judge.git
+cd els-judge
 ```
 
 ### 2. Sanal ortam olusturun
@@ -222,4 +234,4 @@ docker-compose up --build -d
 
 ---
 
-**Built by [codedbyelif](https://github.com/codedbyelif)** | LLM Consensus Engine v1.0
+**Built by [codedbyelif](https://github.com/codedbyelif)** | Els Judge v1.0
