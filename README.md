@@ -1,4 +1,4 @@
-# Els Judge
+# ELS JUDGE
 
 **Built by [codedbyelif](https://github.com/codedbyelif)**
 
@@ -234,4 +234,4 @@ docker-compose up --build -d
 
 ---
 
-**Built by [codedbyelif](https://github.com/codedbyelif)** | Els Judge v1.0
+**Built by [codedbyelif](https://github.com/codedbyelif)** | ELS JUDGE v1.0

@@ -10,7 +10,7 @@ BOLD='\033[1m'
 echo ""
 echo -e "${PINK}${BOLD}  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ${RESET}"
 echo -e "${PINK}${BOLD}                                              ${RESET}"
-echo -e "${PINK}${BOLD}         Els Judge v1.0                       ${RESET}"
+echo -e "${PINK}${BOLD}         ELS JUDGE v1.0                       ${RESET}"
 echo -e "${PINK}${BOLD}         Development by codedbyelif           ${RESET}"
 echo -e "${PINK}${BOLD}                                              ${RESET}"
 echo -e "${PINK}${BOLD}  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ${RESET}"

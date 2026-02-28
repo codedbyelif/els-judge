@@ -15,7 +15,7 @@ class ResultView(Static):
         return self.results_text
 
 class AICodeJudgeApp(App):
-    """A Textual TUI for Els Judge."""
+    """A Textual TUI for ELS JUDGE."""
     
     CSS = """
     Screen {
@@ -138,13 +138,13 @@ class AICodeJudgeApp(App):
             with Vertical(id="right_pane"):
                 yield Static("Analysis Report:", classes="label")
                 with Container(id="results_container"):
-                    yield Markdown("## Welcome to Els Judge\n\n1. Paste your code on the left.\n2. Enter your instructions.\n3. Press **Analyze** to submit.", id="markdown_result")
+                    yield Markdown("## Welcome to ELS JUDGE\n\n1. Paste your code on the left.\n2. Enter your instructions.\n3. Press **Analyze** to submit.", id="markdown_result")
                     yield LoadingIndicator(id="loading", classes="hidden")
                 
         yield Footer()
 
     def on_mount(self) -> None:
-        self.title = "Els Judge"
+        self.title = "ELS JUDGE"
         self.query_one("#loading").display = False
 
     async def on_button_pressed(self, event: Button.Pressed) -> None:

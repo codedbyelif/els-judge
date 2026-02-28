@@ -10,7 +10,7 @@ from core.database import SessionLocal
 from models.domain import Submission, ModelSuggestion
 from dashboard.translations import t, TRANSLATIONS
 
-st.set_page_config(page_title="LLM Consensus Engine", layout="wide", initial_sidebar_state="collapsed")
+st.set_page_config(page_title="ELS JUDGE", layout="wide", initial_sidebar_state="collapsed")
 
 # --- Dark Pink Theme CSS ---
 st.markdown("""
@@ -350,6 +350,6 @@ st.markdown(f"""
 # --- Footer ---
 st.markdown("""
 <div class="site-footer">
-    Built by <a href="https://github.com/codedbyelif" target="_blank">codedbyelif</a> &middot; LLM Consensus Engine v1.0
+    Built by <a href="https://github.com/codedbyelif" target="_blank">codedbyelif</a> &middot; ELS JUDGE v1.0
 </div>
 """, unsafe_allow_html=True)

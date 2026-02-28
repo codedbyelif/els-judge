@@ -1,7 +1,7 @@
 TRANSLATIONS = {
     "en": {
-        "page_title": "LLM Consensus Engine",
-        "title": "LLM Consensus Engine",
+        "page_title": "ELS JUDGE",
+        "title": "ELS JUDGE",
         "subtitle": "AI-powered code improvement using multiple LLMs.",
         "submit_header": "Improve Your Code",
         "your_code": "Your Code",
@@ -39,8 +39,8 @@ TRANSLATIONS = {
         "ai_response_received": "{model} suggested these improvements:",
     },
     "tr": {
-        "page_title": "LLM Konsensus Motoru",
-        "title": "LLM Konsensus Motoru",
+        "page_title": "ELS JUDGE",
+        "title": "ELS JUDGE",
         "subtitle": "Birden fazla LLM ile AI destekli kod iyilestirme.",
         "submit_header": "Kodunu Iyilestir",
         "your_code": "Kodun",

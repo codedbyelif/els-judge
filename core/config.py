@@ -11,7 +11,7 @@ logging.basicConfig(
 logger = logging.getLogger("llm_consensus_engine")
 
 class Settings(BaseSettings):
-    project_name: str = "LLM Consensus Engine"
+    project_name: str = "ELS JUDGE"
     database_url: str = "sqlite:///./consensus.db"
     
     # Optional LLM API keys. LiteLLM picks these up automatically if set in ENV,
