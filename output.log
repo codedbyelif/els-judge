@@ -1,0 +1,328 @@
+
+[38;5;198m[1m  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ [0m
+[38;5;198m[1m                                              [0m
+[38;5;198m[1m         ELS JUDGE v1.0                       [0m
+[38;5;198m[1m         Development by codedbyelif           [0m
+[38;5;198m[1m                                              [0m
+[38;5;198m[1m  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ [0m
+
+[38;5;205m  Starting services...[0m
+
+[38;5;132m  [1/2][0m [38;5;205mFastAPI backend[0m → http://localhost:8000
+INFO:     Will watch for changes in these directories: ['/Users/elis/Desktop/ai-code-judge']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [5405] using StatReload
+2026-03-01 16:31:14,975 - llm_consensus_engine.main - INFO - Creating database tables if they do not exist...
+INFO:     Started server process [5425]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+[38;5;132m  [2/2][0m [38;5;205mStreamlit dashboard[0m → http://localhost:8501
+
+[38;5;198m[1m  Ready! Open http://localhost:8501 in your browser[0m
+
+2026-03-01 16:31:15.484 Port 8501 is not available
+[92m16:31:35 - LiteLLM:INFO[0m: utils.py:3895 - 
+LiteLLM completion() model= gpt-4o; provider = openai
+[REVIEWER] Calling gpt-4o...
+[REVIEWER] Calling zai/glm-4.5-flash...
+2026-03-01 16:31:35,526 - LiteLLM - INFO - 
+LiteLLM completion() model= gpt-4o; provider = openai
+[92m16:31:35 - LiteLLM:INFO[0m: utils.py:3895 - 
+LiteLLM completion() model= glm-4.5-flash; provider = zai
+2026-03-01 16:31:35,529 - LiteLLM - INFO - 
+LiteLLM completion() model= glm-4.5-flash; provider = zai
+[92m16:31:35 - LiteLLM:INFO[0m: utils.py:3895 - 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+[REVIEWER] Calling gemini/gemini-flash-latest...
+2026-03-01 16:31:35,531 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+[REVIEWER ERROR] gpt-4o: BadRequestError: litellm.BadRequestError: OpenAIException - You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.
+2026-03-01 16:31:36,127 - llm_consensus_engine.reviewers - ERROR - Error running review on gpt-4o: litellm.BadRequestError: OpenAIException - You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.
+[REVIEWER] gemini/gemini-flash-latest responded (404 chars)
+[REVIEWER] zai/glm-4.5-flash responded (354 chars)
+INFO:     127.0.0.1:50182 - "POST /api/submit-code HTTP/1.1" 200 OK
+[92m16:37:47 - LiteLLM:INFO[0m: utils.py:3895 - 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+[REVIEWER] Calling gpt-4o...
+[REVIEWER] Calling zai/glm-4.5-flash...
+[REVIEWER] Calling gemini/gemini-flash-latest...
+2026-03-01 16:37:47,744 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+[92m16:37:47 - LiteLLM:INFO[0m: utils.py:3895 - 
+LiteLLM completion() model= glm-4.5-flash; provider = zai
+2026-03-01 16:37:47,745 - LiteLLM - INFO - 
+LiteLLM completion() model= glm-4.5-flash; provider = zai
+[92m16:37:47 - LiteLLM:INFO[0m: utils.py:3895 - 
+LiteLLM completion() model= gpt-4o; provider = openai
+2026-03-01 16:37:47,745 - LiteLLM - INFO - 
+LiteLLM completion() model= gpt-4o; provider = openai
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+[REVIEWER ERROR] gpt-4o: BadRequestError: litellm.BadRequestError: OpenAIException - You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.
+2026-03-01 16:37:47,995 - llm_consensus_engine.reviewers - ERROR - Error running review on gpt-4o: litellm.BadRequestError: OpenAIException - You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.
+[REVIEWER] zai/glm-4.5-flash responded (446 chars)
+[REVIEWER] gemini/gemini-flash-latest responded (629 chars)
+INFO:     127.0.0.1:50317 - "POST /api/submit-code HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'cli.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [5425]
+2026-03-01 16:39:43,610 - llm_consensus_engine.main - INFO - Creating database tables if they do not exist...
+INFO:     Started server process [6245]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+[92m16:42:26 - LiteLLM:INFO[0m: utils.py:3895 - 
+LiteLLM completion() model= gpt-4o; provider = openai
+[REVIEWER] Calling gpt-4o...
+[REVIEWER] Calling zai/glm-4.5-flash...
+[REVIEWER] Calling gemini/gemini-flash-latest...
+2026-03-01 16:42:26,261 - LiteLLM - INFO - 
+LiteLLM completion() model= gpt-4o; provider = openai
+[92m16:42:26 - LiteLLM:INFO[0m: utils.py:3895 - 
+LiteLLM completion() model= glm-4.5-flash; provider = zai
+2026-03-01 16:42:26,263 - LiteLLM - INFO - 
+LiteLLM completion() model= glm-4.5-flash; provider = zai
+[92m16:42:26 - LiteLLM:INFO[0m: utils.py:3895 - 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-03-01 16:42:26,264 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+[REVIEWER ERROR] gpt-4o: BadRequestError: litellm.BadRequestError: OpenAIException - You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.
+2026-03-01 16:42:27,022 - llm_consensus_engine.reviewers - ERROR - Error running review on gpt-4o: litellm.BadRequestError: OpenAIException - You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.
+[REVIEWER] gemini/gemini-flash-latest responded (630 chars)
+2026-03-01 16:43:26,753 - openai._base_client - INFO - Retrying request to /chat/completions in 0.469776 seconds
+[REVIEWER] zai/glm-4.5-flash responded (418 chars)
+INFO:     127.0.0.1:50418 - "POST /api/submit-code HTTP/1.1" 200 OK
+[92m16:43:47 - LiteLLM:INFO[0m: utils.py:3895 - 
+LiteLLM completion() model= gpt-4o; provider = openai
+[REVIEWER] Calling gpt-4o...
+[REVIEWER] Calling zai/glm-4.5-flash...
+[REVIEWER] Calling gemini/gemini-flash-latest...
+2026-03-01 16:43:47,165 - LiteLLM - INFO - 
+LiteLLM completion() model= gpt-4o; provider = openai
+[92m16:43:47 - LiteLLM:INFO[0m: utils.py:3895 - 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-03-01 16:43:47,165 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+[92m16:43:47 - LiteLLM:INFO[0m: utils.py:3895 - 
+LiteLLM completion() model= glm-4.5-flash; provider = zai
+2026-03-01 16:43:47,165 - LiteLLM - INFO - 
+LiteLLM completion() model= glm-4.5-flash; provider = zai
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+[REVIEWER ERROR] gpt-4o: BadRequestError: litellm.BadRequestError: OpenAIException - You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.
+2026-03-01 16:43:47,400 - llm_consensus_engine.reviewers - ERROR - Error running review on gpt-4o: litellm.BadRequestError: OpenAIException - You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.
+[92m16:44:31 - LiteLLM:INFO[0m: utils.py:3895 - 
+LiteLLM completion() model= gpt-4o; provider = openai
+[REVIEWER] gemini/gemini-flash-latest responded (512 chars)
+[REVIEWER] zai/glm-4.5-flash responded (424 chars)
+[REVIEWER] Calling gpt-4o...
+[REVIEWER] Calling zai/glm-4.5-flash...
+[REVIEWER] Calling gemini/gemini-flash-latest...
+2026-03-01 16:44:31,747 - LiteLLM - INFO - 
+LiteLLM completion() model= gpt-4o; provider = openai
+[92m16:44:31 - LiteLLM:INFO[0m: utils.py:3895 - 
+LiteLLM completion() model= glm-4.5-flash; provider = zai
+2026-03-01 16:44:31,748 - LiteLLM - INFO - 
+LiteLLM completion() model= glm-4.5-flash; provider = zai
+[92m16:44:31 - LiteLLM:INFO[0m: utils.py:3895 - 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-03-01 16:44:31,748 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+[REVIEWER ERROR] gpt-4o: BadRequestError: litellm.BadRequestError: OpenAIException - You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.
+2026-03-01 16:44:31,938 - llm_consensus_engine.reviewers - ERROR - Error running review on gpt-4o: litellm.BadRequestError: OpenAIException - You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.
+[REVIEWER] zai/glm-4.5-flash responded (547 chars)
+[REVIEWER ERROR] gemini/gemini-flash-latest: Timeout: litellm.Timeout: Connection timed out. Timeout passed=60.0, time taken=60.003 seconds
+2026-03-01 16:45:31,766 - llm_consensus_engine.reviewers - ERROR - Error running review on gemini/gemini-flash-latest: litellm.Timeout: Connection timed out. Timeout passed=60.0, time taken=60.003 seconds
+WARNING:  StatReload detected changes in 'cli.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [6245]
+2026-03-01 16:46:09,442 - llm_consensus_engine.main - INFO - Creating database tables if they do not exist...
+INFO:     Started server process [6748]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+[92m16:46:49 - LiteLLM:INFO[0m: utils.py:3895 - 
+LiteLLM completion() model= gpt-4o; provider = openai
+[REVIEWER] Calling gpt-4o...
+[REVIEWER] Calling zai/glm-4.5-flash...
+2026-03-01 16:46:49,034 - LiteLLM - INFO - 
+LiteLLM completion() model= gpt-4o; provider = openai
+[92m16:46:49 - LiteLLM:INFO[0m: utils.py:3895 - 
+LiteLLM completion() model= glm-4.5-flash; provider = zai
+2026-03-01 16:46:49,036 - LiteLLM - INFO - 
+LiteLLM completion() model= glm-4.5-flash; provider = zai
+[92m16:46:49 - LiteLLM:INFO[0m: utils.py:3895 - 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+[REVIEWER] Calling gemini/gemini-flash-latest...
+2026-03-01 16:46:49,039 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+[REVIEWER ERROR] gpt-4o: BadRequestError: litellm.BadRequestError: OpenAIException - You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.
+2026-03-01 16:46:49,533 - llm_consensus_engine.reviewers - ERROR - Error running review on gpt-4o: litellm.BadRequestError: OpenAIException - You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.
+[REVIEWER] zai/glm-4.5-flash responded (479 chars)
+[REVIEWER] gemini/gemini-flash-latest responded (509 chars)
+INFO:     127.0.0.1:50524 - "POST /api/submit-code HTTP/1.1" 200 OK
+[92m16:47:33 - LiteLLM:INFO[0m: utils.py:3895 - 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+[REVIEWER] Calling gpt-4o...
+[REVIEWER] Calling zai/glm-4.5-flash...
+[REVIEWER] Calling gemini/gemini-flash-latest...
+2026-03-01 16:47:33,628 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+[92m16:47:33 - LiteLLM:INFO[0m: utils.py:3895 - 
+LiteLLM completion() model= glm-4.5-flash; provider = zai
+2026-03-01 16:47:33,629 - LiteLLM - INFO - 
+LiteLLM completion() model= glm-4.5-flash; provider = zai
+[92m16:47:33 - LiteLLM:INFO[0m: utils.py:3895 - 
+LiteLLM completion() model= gpt-4o; provider = openai
+2026-03-01 16:47:33,629 - LiteLLM - INFO - 
+LiteLLM completion() model= gpt-4o; provider = openai
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+[REVIEWER ERROR] gpt-4o: BadRequestError: litellm.BadRequestError: OpenAIException - You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.
+2026-03-01 16:47:33,820 - llm_consensus_engine.reviewers - ERROR - Error running review on gpt-4o: litellm.BadRequestError: OpenAIException - You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.
+[REVIEWER] gemini/gemini-flash-latest responded (508 chars)
+[REVIEWER] zai/glm-4.5-flash responded (473 chars)
+INFO:     127.0.0.1:50537 - "POST /api/submit-code HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'cli.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [6748]
+2026-03-01 16:51:58,915 - llm_consensus_engine.main - INFO - Creating database tables if they do not exist...
+INFO:     Started server process [7152]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+[92m16:52:47 - LiteLLM:INFO[0m: utils.py:3895 - 
+LiteLLM completion() model= gpt-4o; provider = openai
+[REVIEWER] Calling gpt-4o...
+[REVIEWER] Calling zai/glm-4.5-flash...
+2026-03-01 16:52:47,560 - LiteLLM - INFO - 
+LiteLLM completion() model= gpt-4o; provider = openai
+[92m16:52:47 - LiteLLM:INFO[0m: utils.py:3895 - 
+LiteLLM completion() model= glm-4.5-flash; provider = zai
+2026-03-01 16:52:47,561 - LiteLLM - INFO - 
+LiteLLM completion() model= glm-4.5-flash; provider = zai
+[92m16:52:47 - LiteLLM:INFO[0m: utils.py:3895 - 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+[REVIEWER] Calling gemini/gemini-flash-latest...
+2026-03-01 16:52:47,563 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+[REVIEWER ERROR] gpt-4o: BadRequestError: litellm.BadRequestError: OpenAIException - You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.
+2026-03-01 16:52:48,095 - llm_consensus_engine.reviewers - ERROR - Error running review on gpt-4o: litellm.BadRequestError: OpenAIException - You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.
+[REVIEWER] gemini/gemini-flash-latest responded (500 chars)
+[REVIEWER] zai/glm-4.5-flash responded (521 chars)
+INFO:     127.0.0.1:50648 - "POST /api/submit-code HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'engine/reporter.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [7152]
+2026-03-01 16:55:46,784 - llm_consensus_engine.main - INFO - Creating database tables if they do not exist...
+INFO:     Started server process [7510]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'engine/reporter.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [7510]
+2026-03-01 16:58:19,416 - llm_consensus_engine.main - INFO - Creating database tables if they do not exist...
+INFO:     Started server process [7829]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+[92m16:58:55 - LiteLLM:INFO[0m: utils.py:3895 - 
+LiteLLM completion() model= gpt-4o; provider = openai
+[REVIEWER] Calling gpt-4o...
+[REVIEWER] Calling zai/glm-4.5-flash...
+2026-03-01 16:58:55,382 - LiteLLM - INFO - 
+LiteLLM completion() model= gpt-4o; provider = openai
+[92m16:58:55 - LiteLLM:INFO[0m: utils.py:3895 - 
+LiteLLM completion() model= glm-4.5-flash; provider = zai
+[REVIEWER] Calling gemini/gemini-flash-latest...
+2026-03-01 16:58:55,384 - LiteLLM - INFO - 
+LiteLLM completion() model= glm-4.5-flash; provider = zai
+[92m16:58:55 - LiteLLM:INFO[0m: utils.py:3895 - 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-03-01 16:58:55,386 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+[REVIEWER ERROR] gpt-4o: BadRequestError: litellm.BadRequestError: OpenAIException - You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.
+2026-03-01 16:58:55,921 - llm_consensus_engine.reviewers - ERROR - Error running review on gpt-4o: litellm.BadRequestError: OpenAIException - You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.
+[REVIEWER] gemini/gemini-flash-latest responded (447 chars)
+2026-03-01 16:59:55,819 - openai._base_client - INFO - Retrying request to /chat/completions in 0.443015 seconds
+[REVIEWER] zai/glm-4.5-flash responded (460 chars)
+INFO:     127.0.0.1:50887 - "POST /api/submit-code HTTP/1.1" 200 OK
+WARNING:  StatReload detected changes in 'engine/reporter.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [7829]
+WARNING:  StatReload detected changes in 'cli.py'. Reloading...
+2026-03-01 17:03:39,012 - llm_consensus_engine.main - INFO - Creating database tables if they do not exist...
+INFO:     Started server process [8248]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [8248]
+2026-03-01 17:03:40,833 - llm_consensus_engine.main - INFO - Creating database tables if they do not exist...
+INFO:     Started server process [8259]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+[92m17:08:38 - LiteLLM:INFO[0m: utils.py:3895 - 
+LiteLLM completion() model= gpt-4o; provider = openai
+[REVIEWER] Calling gpt-4o...
+[REVIEWER] Calling zai/glm-4.5-flash...
+2026-03-01 17:08:38,454 - LiteLLM - INFO - 
+LiteLLM completion() model= gpt-4o; provider = openai
+[92m17:08:38 - LiteLLM:INFO[0m: utils.py:3895 - 
+LiteLLM completion() model= glm-4.5-flash; provider = zai
+[REVIEWER] Calling gemini/gemini-flash-latest...
+2026-03-01 17:08:38,456 - LiteLLM - INFO - 
+LiteLLM completion() model= glm-4.5-flash; provider = zai
+[92m17:08:38 - LiteLLM:INFO[0m: utils.py:3895 - 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+2026-03-01 17:08:38,457 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-flash-latest; provider = gemini
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+[REVIEWER ERROR] gpt-4o: BadRequestError: litellm.BadRequestError: OpenAIException - You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.
+2026-03-01 17:08:39,085 - llm_consensus_engine.reviewers - ERROR - Error running review on gpt-4o: litellm.BadRequestError: OpenAIException - You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.
+[REVIEWER] gemini/gemini-flash-latest responded (710 chars)
+2026-03-01 17:09:38,977 - openai._base_client - INFO - Retrying request to /chat/completions in 0.486940 seconds
+[REVIEWER] zai/glm-4.5-flash responded (659 chars)
+INFO:     127.0.0.1:51187 - "POST /api/submit-code HTTP/1.1" 200 OK

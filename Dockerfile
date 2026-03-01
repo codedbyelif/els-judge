@@ -1,0 +1,18 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+# Make the startup script executable
+RUN chmod +x start.sh
+
+# Expose both ports
+EXPOSE 8000
+EXPOSE 8501
+
+# Run the startup script that boots both FastAPI and Streamlit
+CMD ["./start.sh"]
