@@ -27,22 +27,24 @@ def generate_markdown_report(
         model = result["model_name"]
         suggestion = result["suggestion"]
         diff_text = result["diff_text"]
-
-        md += f"## {model}\n\n"
+            
+        # Normal markdown, we will style MarkdownH2 in cli.py CSS
+        md += f"## {model.upper()} MODEL\n\n"
         md += f"**Explanation:** {suggestion.explanation}\n\n"
 
         if suggestion.changes:
             md += "### Changes Made\n\n"
             for i, change in enumerate(suggestion.changes, 1):
                 md += f"**{i}. {change.line_range}** — {change.reason}\n\n"
-                md += f"Before:\n```\n{change.original}\n```\n"
-                md += f"After:\n```\n{change.improved}\n```\n\n"
+                md += f"Before:\n```python\n{change.original}\n```\n"
+                md += f"After:\n```python\n{change.improved}\n```\n\n"
 
         md += "### Full Diff\n"
         md += f"```diff\n{diff_text}\n```\n\n"
 
         md += "### Improved Code\n"
-        md += f"```\n{suggestion.improved_code}\n```\n\n"
+        md += f"```python\n{suggestion.improved_code}\n```\n\n"
+        
         md += "---\n\n"
 
     return md

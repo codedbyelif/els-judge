@@ -17,12 +17,12 @@ class Settings(BaseSettings):
     # Optional LLM API keys. LiteLLM picks these up automatically if set in ENV,
     # but having them in settings is good practice to ensure they exist or log warnings.
     openai_api_key: str | None = None
-    anthropic_api_key: str | None = None
-    gemini_api_key: str | None = None
+    zhipuai_api_key: str | None = None
+    zai_api_key: str | None = None
     
     # Models to use
     primary_model: str = "gpt-4o"
-    secondary_model: str = "claude-3-5-sonnet-20240620"
+    secondary_model: str = "zai/glm-4.5-flash"
     tertiary_model: str = "gemini/gemini-flash-latest"
     
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")

@@ -111,6 +111,17 @@ class AICodeJudgeApp(App):
     LoadingIndicator {
         color: #f06595;
     }
+    
+    MarkdownH2 {
+        color: #d6336c;
+        text-style: bold;
+    }
+    
+    MarkdownHr {
+        color: #f06595;
+        border-bottom: heavy #f06595;
+        margin: 2 0;
+    }
     """
     
     BINDINGS = [
@@ -170,14 +181,12 @@ class AICodeJudgeApp(App):
         md_view.display = False
         loading.display = True
         
-        self.run_worker(self.fetch_analysis(code_input, prompt_input), exclusive=True)
+        self.run_worker(self.fetch_analysis(code_input, prompt_input), exclusive=True, thread=True)
 
     async def fetch_analysis(self, code: str, prompt: str) -> None:
         api_url = "http://localhost:8000/api/submit-code"
         try:
-            # We run the blocking request in the worker thread
             import urllib.request
-            import inspect
             import json
             
             data = json.dumps({"code": code, "prompt": prompt}).encode('utf-8')
@@ -187,7 +196,6 @@ class AICodeJudgeApp(App):
                 result = json.loads(response.read().decode())
                 
             md_report = result.get("markdown_report", "No report generated.")
-            
             self.call_from_thread(self.update_success, md_report)
             
         except Exception as e:
