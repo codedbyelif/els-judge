@@ -20,6 +20,38 @@ A production-ready code evaluation application. It uses a Textual-based Terminal
 
 ---
 
+## Technologies & Dependencies
+
+### Core Technologies
+
+- **Python 3.11** - Programming language
+- **Textual** - Terminal User Interface (TUI) framework for interactive CLI
+- **AsyncIO** - Asynchronous programming for parallel model execution
+- **Git** - Version control with worktree and branch management
+- **Docker** - Containerization for deployment
+
+### Python Libraries & Frameworks
+
+- **Pydantic** - Data validation and schema management
+- **Pydantic Settings** - Configuration management with environment variable support
+- **SQLAlchemy** - Object-Relational Mapping (ORM) for database operations
+- **LiteLLM** - Unified interface for multiple LLM providers
+- **psycopg2-binary** - PostgreSQL database adapter
+- **Rich** - Terminal formatting, tables, and rich output rendering
+
+### AI Models
+
+- **ZhipuAI GLM-4.5-Flash** - Primary AI model for code analysis
+- **Google Gemini Flash** - Secondary AI model for comparative analysis
+
+### Infrastructure
+
+- **PostgreSQL** - Primary database (with SQLite option for development)
+- **Git Worktrees** - Isolated environments for model-specific changes
+- **Environment Variables** - Configuration management via .env files
+
+---
+
 ## Quick Start
 
 ### 1. Clone the repository
