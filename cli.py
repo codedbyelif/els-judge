@@ -145,7 +145,7 @@ class AICodeJudgeApp(App):
                 yield Static("What should be improved?", classes="label")
                 yield Input(id="prompt_input", placeholder="e.g. Add type hints and error handling")
                 
-                yield Button("Analyze with 3 AI Models", id="submit_btn", variant="primary")
+                yield Button("Analyze with 2 AI Models", id="submit_btn", variant="primary")
                 yield Static("Built by codedbyelif", id="branding_footer")
                 
             # Right Pane: Results
@@ -207,7 +207,7 @@ class AICodeJudgeApp(App):
         
         btn = self.query_one("#submit_btn", Button)
         btn.disabled = False
-        btn.label = "Analyze with 3 AI Models"
+        btn.label = "Analyze with 2 AI Models"
 
     def update_error(self, error_msg: str) -> None:
         self.query_one("#loading").display = False
@@ -217,7 +217,7 @@ class AICodeJudgeApp(App):
         
         btn = self.query_one("#submit_btn", Button)
         btn.disabled = False
-        btn.label = "Analyze with 3 AI Models"
+        btn.label = "Analyze with 2 AI Models"
 
 if __name__ == "__main__":
     app = AICodeJudgeApp()
