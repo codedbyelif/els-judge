@@ -44,7 +44,7 @@ async def process_submission(target_files: List[str], prompt: str) -> Dict[str, 
     task_id = str(uuid.uuid4())[:8]
     base_task_branch = create_task_branch(task_id)
 
-    models = [settings.primary_model, settings.secondary_model, settings.tertiary_model]
+    models = [settings.primary_model, settings.secondary_model]
 
     # 1. Run models concurrently in their own isolated Git worktrees
     tasks = [
