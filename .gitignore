@@ -17,3 +17,6 @@ venv/
 
 # OS
 .DS_Store
+
+# AI Code Judge Worktrees
+.ai_worktrees/

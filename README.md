@@ -4,6 +4,8 @@
 
 A production-ready code evaluation application. It uses a Textual-based Terminal User Interface (TUI) to evaluate and improve code using multiple large language models. The engine sends your code and instructions simultaneously to three different models and displays a side-by-side comparison of the improvements directly in your terminal.
 
+![ELS Judge TUI](tui.png)
+
 ---
 
 ## Features
